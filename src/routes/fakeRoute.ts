@@ -4,6 +4,6 @@ import {login} from "../controllers/fakeController";
 
 const router: Router = express.Router();
 
-router.get('/login', login);
+router.post('/login', login);
 
-module.exports = router;
+export default router;

@@ -1,15 +1,17 @@
-import express, {Application, Router} from 'express';
+import express, {Application, Request, Response} from 'express';
+import cors from 'cors';
+import bodyParser from 'body-parser';
+
+import routes from './routes/fakeRoute';
 
 const app:Application = express();
 
-const router: Router = express.Router();
+app.use(cors({allowedHeaders: "*", methods: "*", origin: "*"}));
+app.use(bodyParser.json());
+app.use("/api/v1", routes);
 
-const routes = require('./routes/fakeRoute');
-
-router.use("", routes);
-
-app.use("/api/v1", router);
+app.use("/ping", (req: Request, res: Response) => res.send("pong"));
 
 app.listen(8000, ():void => {
-    console.log(`Server Running here 👉 https://localhost:8000`);
+    console.log(`Server Running here 👉 http://localhost:8000`);
 });
