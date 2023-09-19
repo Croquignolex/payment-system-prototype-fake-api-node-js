@@ -1,0 +1,40 @@
+{
+  "name": "payment-system-api",
+  "title": "Payment System API",
+  "description": "A simple API for payment",
+  "keywords": [
+    "system",
+    "payment",
+    "paypal",
+    "momo",
+    "om",
+    "money",
+    "transfer"
+  ],
+  "license": "MIT",
+  "author": "Croquignolex",
+  "contributors": [
+    "Croquignolex"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Croquignolex/payment-system-prototype-fake-api-node.git"
+  },
+  "version": "1.0.0",
+  "private": true,
+  "main": "./src/index.ts",
+  "scripts": {
+    "start": "ts-node ./src/index.ts",
+    "dev": "ts-node-dev --respawn ./src/index.ts"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.6.2",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
