@@ -8,7 +8,7 @@ const app:Application = express();
 
 app.use(cors({allowedHeaders: "*", methods: "*", origin: "*"}));
 app.use(bodyParser.json());
-app.use("/api/v1", routes);
+app.use("", routes);
 
 app.use("/ping", (req: Request, res: Response) => res.send("pong"));
 
