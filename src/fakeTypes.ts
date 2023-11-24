@@ -18,13 +18,25 @@ export interface UserModel {
 }
 
 export interface AccountModel {
-    userName: string,
+    accountId: string,
+    recipientId: string,
     firstName: string,
     lastName: string,
     emailAddress: string,
     phoneNumber: string,
     countryCode: string,
+    payerType: string,
+    currencyCode: string,
+}
+
+export interface ContactModel {
     accountId: string,
-    password: string,
-    address: AddressModel
+    recipientId: string,
+    firstName: string,
+    lastName: string,
+    emailAddress: string,
+    phoneNumber: string,
+    countryCode: string,
+    recipientType: string,
+    currencyCode: string,
 }
