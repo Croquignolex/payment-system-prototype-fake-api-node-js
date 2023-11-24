@@ -1,3 +1,25 @@
+import * as uuid from 'uuid';
+import {UserModel} from "./fakeTypes";
+
+export const usersData: UserModel[] = [
+    {
+        userName: "fake_user",
+        firstName: "Test",
+        lastName: "User",
+        emailAddress: "test@paypro.com",
+        phoneNumber: "+237000000000",
+        countryCode: "CM",
+        accountId: uuid.v1(),
+        password: 'test',
+        address: {
+            city: "Douala",
+            zipCode: "144",
+            street: "Akwa",
+            country: "CAMEROUN",
+        }
+    }
+];
+
 export const contactInfoData = {
     userName: "croquignolex",
     firstName: "Croquignolex",

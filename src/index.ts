@@ -2,7 +2,7 @@ import express, {Application, Request, Response} from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 
-import routes from './routes/fakeRoute';
+import routes from './fakeRoutes';
 
 const app:Application = express();
 
