@@ -16,4 +16,6 @@ router.get('/account/:accountId/transferrecipient', fakeController.contacts);
 router.put('/account/:accountId/transferpayer', fakeController.accountAdd);
 router.get('/account/:accountId/transferpayer', fakeController.accounts);
 
+router.put('/cmmtncmmtntransfer/:accountId/account', fakeController.transferAddMtnToMtn);
+
 export default router;

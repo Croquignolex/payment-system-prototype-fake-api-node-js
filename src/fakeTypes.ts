@@ -19,7 +19,7 @@ export interface UserModel {
 
 export interface AccountModel {
     accountId: string,
-    recipientId: string,
+    payerId: string,
     firstName: string,
     lastName: string,
     emailAddress: string,
@@ -39,4 +39,12 @@ export interface ContactModel {
     countryCode: string,
     recipientType: string,
     currencyCode: string,
+}
+
+export interface TransferModel {
+    transferId: string,
+    payerId: string,
+    recipientId: string,
+    amount: string,
+    accountId: string,
 }

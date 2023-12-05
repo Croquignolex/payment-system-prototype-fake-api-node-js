@@ -1,8 +1,11 @@
 import * as uuid from 'uuid';
-import {AccountModel, ContactModel, UserModel} from "./fakeTypes";
+
+import {AccountModel, ContactModel, TransferModel, UserModel} from "./fakeTypes";
 
 export const accountsData: AccountModel[] = [];
 export const contactsData: ContactModel[] = [];
+
+export const transfersData: TransferModel[] = [];
 
 export const usersData: UserModel[] = [
     {

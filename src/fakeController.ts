@@ -1,8 +1,8 @@
 import {Request, Response} from 'express';
 import * as uuid from "uuid";
 
-import {contactsData, contactInfoData, accountsData, usersData} from "./fakeData";
-import {AccountModel, ContactModel, UserModel} from "./fakeTypes";
+import {contactsData, contactInfoData, accountsData, usersData, transfersData} from "./fakeData";
+import {AccountModel, ContactModel, TransferModel, UserModel} from "./fakeTypes";
 
 export const login = async (req: Request, res: Response): Promise<Response> => {
     const data: any = req.body;
@@ -71,6 +71,30 @@ export const accountAddressUpdate = async (req: Request, res: Response): Promise
     return res.send();
 };
 
+export const transferAddMtnToMtn = async (req: Request, res: Response): Promise<Response> => {
+    const params: any = req.params;
+    const data: any = req.body;
+
+    const payerId: string = data?.payerId;
+    const recipientId: string = data?.recipientId;
+    const amount: string = data?.amount;
+    const transferId: string = uuid.v1();
+
+    const accountId: string = params?.accountId;
+
+    const transfer: TransferModel = {
+        transferId,
+        accountId,
+        payerId,
+        recipientId,
+        amount,
+    }
+
+    transfersData.push(transfer);
+
+    return res.send({transferId});
+};
+
 export const contactAdd = async (req: Request, res: Response): Promise<Response> => {
     const params: any = req.params;
     const data: any = req.body;
@@ -130,13 +154,13 @@ export const accountAdd = async (req: Request, res: Response): Promise<Response>
     const payerType: string = data?.payerType;
     const currencyCode: string = data?.currencyCode;
     const countryCode: string = data?.countryCode;
-    const recipientId: string = uuid.v1();
+    const payerId: string = uuid.v1();
 
     const accountId: string = params?.accountId;
 
     const account: AccountModel = {
         accountId,
-        recipientId,
+        payerId,
         firstName,
         lastName,
         emailAddress,
@@ -151,7 +175,7 @@ export const accountAdd = async (req: Request, res: Response): Promise<Response>
     if(!needleAccount) {
         accountsData.push(account);
 
-        return res.send({recipientId});
+        return res.send({payerId});
     }
 
     return res.status(400).send({message: 'Un compte existe déjà avec cet addresse email'});
