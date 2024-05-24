@@ -31,7 +31,7 @@ export const register = async (req: Request, res: Response): Promise<Response> =
     const firstName: string = data?.firstName;
     const lastName: string = data?.lastName;
     const password: string = data?.password;
-    const accountId: string = uuid.v1();
+    const accountId: string = "XXXXX";
 
     const user: UserModel = {
         userName: accountId,
@@ -95,6 +95,12 @@ export const transferAddMtnToMtn = async (req: Request, res: Response): Promise<
     return res.send({transferId});
 };
 
+export const transferStatus = async (req: Request, res: Response): Promise<Response> => {
+    const status: Array<string> = ["SUCCESS", "PENDING", "FAILED"];
+
+    return res.send({status: status[Math.floor(Math.random() * 3)]});
+};
+
 export const contactAdd = async (req: Request, res: Response): Promise<Response> => {
     const params: any = req.params;
     const data: any = req.body;
@@ -140,7 +146,7 @@ export const contacts = async (req: Request, res: Response): Promise<Response> =
 
     const contacts: ContactModel[] = contactsData.filter((contact: ContactModel): boolean => contact.accountId === accountId);
 
-    return res.send(contacts);
+    return res.send({recipients: contacts});
 };
 
 export const accountAdd = async (req: Request, res: Response): Promise<Response> => {
@@ -188,5 +194,5 @@ export const accounts = async (req: Request, res: Response): Promise<Response> =
 
     const accounts: AccountModel[] = accountsData.filter((account: AccountModel): boolean => account.accountId === accountId);
 
-    return res.send(accounts);
+    return res.send({payers: accounts});
 };

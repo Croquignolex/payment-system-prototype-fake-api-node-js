@@ -2,8 +2,30 @@ import * as uuid from 'uuid';
 
 import {AccountModel, ContactModel, TransferModel, UserModel} from "./fakeTypes";
 
-export const accountsData: AccountModel[] = [];
-export const contactsData: ContactModel[] = [];
+export const accountsData: AccountModel[] = [
+    {
+        firstName: "Croquy",
+        lastName: "Account",
+        emailAddress: "account@test.com",
+        phoneNumber: "6777755888",
+        payerType: "CM_MTN",
+        currencyCode: "XAF",
+        countryCode: "CM",
+        payerId: uuid.v1(),
+        accountId: "XXXXX"
+    }
+];
+export const contactsData: ContactModel[] = [{
+    firstName: "Croquy",
+    lastName: "Contact",
+    emailAddress: "contact@test.com",
+    phoneNumber: "6999555888",
+    recipientType: "CM_MTN",
+    currencyCode: "XAF",
+    countryCode: "CM",
+    recipientId: uuid.v1(),
+    accountId: "XXXXX"
+}];
 
 export const transfersData: TransferModel[] = [];
 
@@ -15,7 +37,7 @@ export const usersData: UserModel[] = [
         emailAddress: "admin@paypro.com",
         phoneNumber: "+237000000000",
         countryCode: "CM",
-        accountId: uuid.v1(),
+        accountId: "XXXXX",
         password: 'admin',
         address: {
             city: "Douala",
