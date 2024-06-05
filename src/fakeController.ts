@@ -92,7 +92,7 @@ export const transferAddMtnToMtn = async (req: Request, res: Response): Promise<
 
     transfersData.push(transfer);
 
-    return res.send({transferId, message: ""});
+    return res.send({id: transferId, message: ""});
 };
 
 export const transferStatus = async (req: Request, res: Response): Promise<Response> => {
